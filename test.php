@@ -2,10 +2,10 @@
 require_once('config.php');
 require_once('phpquery.php');
 
-tr y {
+try {
     $sql = new PDO($dbdsn, $dbuser, $dbpass, array(PDO::ATTR_PERSISTENT => true,
                                                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-} cat ch(PDOException $e) {
+} catch(PDOException$e) {
     if ($display_errors) die("Can't connect to database. Check your config.php. Details: ".$e->getMessage());
     else die("Can't connect to database. Check your config.php or set \$display_errors = true; to see details.");
 }
@@ -44,7 +44,7 @@ foreach ($hentry as $el) {
 	$q = $sql->prepare("INSERT INTO rotator (`name`, `url`, `reward`, `period`) VALUES (?,?,?,?)");
     $q->execute(array($name, $url, $reward, $period));
 			
-	var_dump($period);
+	print_r($period);
 }
 //var_dump($content);
 ?>

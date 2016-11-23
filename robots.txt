@@ -1,0 +1,6 @@
+User-Agent: *
+Disallow: # empty Disallow instruction SHOULD be there
+Disallow: /*r=*
+Disallow: /*p=*
+Disallow: /*cc=*
+Host: satoshi.cool
